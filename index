@@ -1,0 +1,81 @@
+
+
+
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pyetësor Online</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pyetësor Online</h1>
+    <form id="quizForm">
+      <div class="question">
+        <label>1. Cili është kryeqyteti i Shqipërisë?</label><br>
+        <input type="radio" name="q1" value="Tirana"> Tirana<br>
+        <input type="radio" name="q1" value="Shkodra"> Shkodra<br>
+        <input type="radio" name="q1" value="Vlora"> Vlora
+      </div>
+      <div class="question">
+        <label>2. Sa është 5 + 7?</label><br>
+        <input type="radio" name="q2" value="11"> 11<br>
+        <input type="radio" name="q2" value="12"> 12<br>
+        <input type="radio" name="q2" value="13"> 13
+      </div>
+      <button type="button" onclick="submitQuiz()">Dërgo</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function submitQuiz() {
+      let score = 0;
+      const form = document.forms['quizForm'];
+      if (form.q1.value === 'Tirana') score++;
+      if (form.q2.value === '12') score++;
+
+      document.getElementById('result').innerText = "Rezultati juaj: " + score + "/2";
+    }
+  </script>
+</body>
+</html>

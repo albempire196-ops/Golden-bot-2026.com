@@ -1,0 +1,88 @@
+from flask import Flask, render_template_string
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def home():
+    template = """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Golden Boot 2026 Prediction</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                background: linear-gradient(to right, #87CEFA, #E0FFFF); /* blu e lehtë */
+                color: #003366; /* blu e errët për kontrast */
+            }
+            .overlay {
+                height: 100%;
+                width: 100%;
+                padding: 40px 20px;
+                box-sizing: border-box;
+            }
+            .container {
+                max-width: 800px;
+                margin: auto;
+                background: rgba(255,255,255,0.85);
+                padding: 20px;
+                border-radius: 12px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            }
+            h1 {
+                text-align: center;
+                color: #004080;
+            }
+            h2 {
+                margin-top: 20px;
+                color: #0059b3;
+            }
+            p, ul {
+                line-height: 1.6;
+            }
+            ul {
+                margin-left: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="overlay">
+            <div class="container">
+                <h1>Golden Boot 2026 Prediction</h1>
+                <p><strong>AI prediction for the 2026 Golden Boot winner is Kylian Mbappé.</strong></p>
+
+                <h2>Here’s why:</h2>
+                <ul>
+                    <li>He will be 27 years old in 2026, which is typically the peak age for a forward.</li>
+                    <li>France has one of the strongest squads in the world and is very likely to reach the later stages of the tournament, giving him more matches to score in.</li>
+                    <li>He already won the Golden Boot in 2022, proving he can deliver on the biggest stage.</li>
+                </ul>
+
+                <h2>Other strong candidates:</h2>
+                <ul>
+                    <li><strong>Erling Haaland</strong> – could dominate if Norway qualifies.</li>
+                    <li><strong>Julián Álvarez</strong> – may become Argentina’s main striker.</li>
+                    <li><strong>Vinícius Júnior</strong> – emerging as a serious threat for Brazil.</li>
+                </ul>
+
+                <h2>Conclusion:</h2>
+                <p>
+                    Still, considering France’s strength, Mbappé’s track record, and his physical prime, 
+                    I predict he will win the Golden Boot in 2026.
+                </p>
+            </div>
+        </div>
+    </body>
+    </html>
+    """
+    return render_template_string(template)
+
+
+if __name__ == "__main__":
+    app.run(debug=True, port=8000)
